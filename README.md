@@ -1,6 +1,8 @@
 # Why pairing is faster
 
 A paper proving that pairing is faster than pull requests.
+Download the [latest version](https://github.com/initialcapacity/why-pairing-is-faster/releases/latest/download/why-pairing-is-faster.pdf)
+to check it out.
 
 ## Install dependencies
 
