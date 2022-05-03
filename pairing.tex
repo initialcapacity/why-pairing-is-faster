@@ -1,6 +1,7 @@
 \documentclass[letterpaper]{article}
 \usepackage[pass]{geometry}
 \usepackage{amsthm}
+\usepackage{csquotes}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -29,16 +30,25 @@
 
     \section{Introduction}\label{sec:introduction}
 
-    Learning any new product domain or language takes time. Collaborating with individuals that have a solid understanding
-    of product domain and programming language can be highly beneficial for newcomers to a product. Pair Programming is
-    one form of this collaboration - by having the two developers work side-by-side on a common problem or set of features.
+    Learning any new product domain or language takes time.
+    Collaborating with individuals that have a solid understanding of product domain and programming language can be
+    highly beneficial for newcomers to a product.
+    Pair programming, or having the two developers work side-by-side on a common problem or set of features, is one form
+    of this collaboration.
 
-    However, once both developers have a solid understanding of product domain and technology stack, the question quickly
-    becomes: what happens when the team understands both product domain and technology, should they still pair?
+    However, once both developers have a solid understanding of product domain and technology stack, the question
+    quickly becomes: What happens when individuals understand both product domain and technology?
+    Should they still pair?
 
     The simple answer might be yes, because both domain and technology are constantly changing and there is always more
-    to learn. In addition, the benefits of collective ownership alone might lead individuals to continuing to pair -
-    “increases the chances that anyone on the team feels comfortable changing the code almost anywhere.” - Fowler
+    to learn.
+    In addition, the benefits of collective ownership alone might lead individuals to continuing to pair.
+
+    \begin{displayquote}
+        ``(pairing) increases the chances that anyone on the team feels comfortable changing the code almost anywhere."
+
+        \textit{Martin Fowler}
+    \end{displayquote}
 
     We have recently discovered that the decision and strong argument to continue pairing is most impacted by the shape
     of the work - serial versus parallel work.
@@ -168,4 +178,11 @@
         velocity of $2m$.
         As before, the team working in a pairing model is faster.
     \end{proof}
+
+    \section{Summary}\label{sec:summary}
+
+    When paring, dependencies between stories in a backlog have less of an impact on team velocity.
+    The impact of dependencies is much higher in a pull request workflow, meaning stories must be highly parallelizable
+    to achieve the same productivity.
+
 \end{document}

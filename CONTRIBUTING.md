@@ -7,7 +7,7 @@
 1.  Reload your terminal then install packages.
     ```shell
     sudo tlmgr update --self
-    sudo tlmgr install latexmk
+    sudo tlmgr install latexmk csquotes
     ```
 
 ## Build
