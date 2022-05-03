@@ -1,6 +1,6 @@
 # Why pairing is faster
 
-A paper proving that pairing is faster than pull requests.
+A paper proving that pairing is faster than a code review or pull request workflow.
 
 Download the [latest draft](https://github.com/initialcapacity/why-pairing-is-faster/releases/latest/download/why-pairing-is-faster.pdf)
 of the paper.
@@ -18,8 +18,8 @@ We complete more features faster by pairing because the code reviews happen in p
 ## Summary 
 
 When paring, dependencies between stories in a backlog have less of an impact on team velocity.
-The impact of dependencies is much higher in a pull request workflow, meaning stories must be highly parallelizable
-to achieve the same productivity.
+The impact of dependencies is much higher in a code review or pull request workflow, meaning stories must be
+highly parallelizable to achieve the same productivity.
 
 ## Simulator
 
