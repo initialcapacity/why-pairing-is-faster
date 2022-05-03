@@ -7,7 +7,7 @@ of the paper.
 
 ## Abstract
 
-We have long discussed how Pair Programming, among several benefits, accelerates knowledge sharing, ensures collective code
+We have long discussed how pair programming, among several benefits, accelerates knowledge sharing, ensures collective code
 ownership and increases overall developer productivity. These benefits outweigh the previously-assumed decrease in velocity
 and cost due to having two people do the work of one. Recently, we have learned that this impact is greater
 than once thought, and that pairing can even improve velocity in the short term. We complete more features faster by
