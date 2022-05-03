@@ -2,6 +2,7 @@
 \usepackage[pass]{geometry}
 \usepackage{amsthm}
 \usepackage{csquotes}
+\usepackage{hyperref}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -19,7 +20,7 @@
 
     \begin{abstract}
         We have long discussed how pair programming, among several benefits, accelerates knowledge sharing, ensures
-        collective code ownership, and increases overall developer productivity.
+        collective code ownership, and increases overall developer productivity~\cite{fowler:pairing}.
         These benefits outweigh the previously assumed decrease in velocity and high cost due to having two people do
         the work of one.
         Recently, we have learned that pairing does not negatively impact velocity, and can even improve velocity
@@ -44,15 +45,12 @@
     to learn.
     In addition, the benefits of collective ownership alone might lead individuals to continuing to pair.
 
-    \begin{displayquote}
-        ``(pairing) increases the chances that anyone on the team feels comfortable changing the code almost anywhere."
-
-        \textit{Martin Fowler}
+    \begin{displayquote}[\cite{fowler:pairing}][\textit{Birgitta Böckeler and Nina Siessegger}]
+        ``[Pairing] increases the chances that anyone on the team feels comfortable changing the code almost anywhere."
     \end{displayquote}
 
     We have recently discovered that the decision and strong argument to continue pairing is most impacted by the shape
     of the work - serial versus parallel work.
-
 
     \section{Workflows}\label{sec:workflows}
 
@@ -185,4 +183,6 @@
     The impact of dependencies is much higher in a pull request workflow, meaning stories must be highly parallelizable
     to achieve the same productivity.
 
+    \bibliographystyle{plain}
+    \bibliography{refs}
 \end{document}
