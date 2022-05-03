@@ -3,7 +3,7 @@
 A paper proving that pairing is faster than pull requests.
 
 Download the [latest version](https://github.com/initialcapacity/why-pairing-is-faster/releases/latest/download/why-pairing-is-faster.pdf)
-of there paper.
+of the paper.
 
 ## Abstract
 
@@ -12,3 +12,8 @@ ownership and increases overall developer productivity. These benefits outweigh 
 and cost due to having two people do the work of one. Recently, we have learned that this impact is greater
 than once thought, and that pairing can even improve velocity in the short term. We complete more features faster by
 pairing because the code reviews happen in parallel, rather than asynchronously.
+
+## Simulator
+
+Still not convinced?
+Try the [simulator](https://github.com/initialcapacity/why-pairing-is-faster-simulator).
