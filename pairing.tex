@@ -10,34 +10,36 @@
 \newtheorem{definition}[theorem]{Definition}
 
 \title{Why Pairing is Faster}
-\author{Michael Barinek \& Tyson Gern}
+\author{Michael Barinek \& Tyson Gern \& Darren Platt}
 \date{\today}
 
 \begin{document}
     \maketitle
 
     \begin{abstract}
-        We have long known that pairing enhances knowledge sharing, ramping, and training.
-        These benefits outweighed the previously-assumed hit to overall velocity due to having two people do the work of
-        one.
-        Recently, we have learned that this impact is not as great as once thought, and that pairing can even improve
-        velocity in the short term.
-        We complete more features more quickly by pairing because the code is reviewed in real time, rather than
-        asynchronously.
+    We have long discussed how Pair Programming, among several benefits, accelerates knowledge sharing, ensures collective
+    code ownership and increases overall developer productivity. These benefits outweigh the previously-assumed decrease
+    in velocity and cost due to having two people do the work of one. Recently, we have learned that this impact is greater
+    than once thought, and that pairing can even improve velocity in the short term. We complete more features faster by
+    pairing because the code reviews happen in parallel, rather than asynchronously.
+
     \end{abstract}
 
     \section{Introduction}\label{sec:introduction}
 
-    Learning a new language or domain on your own versus working with a seasoned developer;
-    a developer that can share lessons learned or clarify a slightly complex domain nomenclature.
-    The hypothesis being that a better understanding should naturally result in higher productivity or developing
-    software faster.
+    Learning any new product domain or language takes time. Collaborating with individuals that have a solid understanding
+    of product domain and programming language can be highly beneficial for newcomers to a product. Pair Programming is
+    one form of this collaboration - by having the two developers work side-by-side on a common problem or set of features.
 
-    However, the question quickly becomes: What happens when the team understands both product domain and technology?
-    Should the team still pair?
+    However, once both developers have a solid understanding of product domain and technology stack, the question quickly
+    becomes: what happens when the team understands both product domain and technology, should they still pair?
 
-    The simple answer might be yes, because both domain and technology are constantly changing.
-    There is always more to learn, and now we have proof that pairing ships product faster.
+    The simple answer might be yes, because both domain and technology are constantly changing and there is always more
+    to learn. In addition, the benefits of collective ownership alone might lead individuals to continuing to pair -
+    “increases the chances that anyone on the team feels comfortable changing the code almost anywhere.” - Fowler
+
+    We have recently discovered that the decision and strong argument to continue pairing is most impacted by the shape
+    of the work - serial versus parallel work.
 
     \section{Workflows}\label{sec:workflows}
 
@@ -68,7 +70,7 @@
 
     \begin{definition}
         The \textit{pairing workflow} consists of developers working in pairs, conducting live code review, and
-        committing to the mainline branch once the code is complete.
+        typically committing to the mainline branch once the code is complete.
     \end{definition}
 
     \begin{lemma}\label{lemma:pair}
