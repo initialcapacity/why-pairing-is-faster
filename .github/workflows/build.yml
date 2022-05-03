@@ -14,23 +14,30 @@ jobs:
         with:
           format: pdf
           filename: pairing.tex
-
       - name: Save artifact
         uses: actions/upload-artifact@v3
         with:
           name: article
           path: build/pairing.pdf
+  create-release:
+    runs-on: ubuntu-latest
+    needs: build-pdf
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: article
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H-%M')"
+        run: echo "::set-output name=date::$(date +'%Y%m%d%H%M')"
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: pairing-${{ steps.date.outputs.date }}
-          release_name: Release ${{ steps.date.outputs.date }}
+          tag_name: v${{ steps.date.outputs.date }}
+          release_name: Release v${{ steps.date.outputs.date }}
           draft: false
           prerelease: false
       - name: Upload Release Asset
@@ -39,6 +46,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/pairing.pdf
-          asset_name: pairing.pdf
+          asset_path: pairing.pdf
+          asset_name: pairing-v${{ steps.date.outputs.date }}.pdf
           asset_content_type: application/pdf
