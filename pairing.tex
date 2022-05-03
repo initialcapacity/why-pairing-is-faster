@@ -1,0 +1,161 @@
+\documentclass[letterpaper]{article}
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\title{Why Pairing is Faster}
+\author{Michael Barinek \& Tyson Gern}
+\date{\today}
+
+\begin{document}
+    \maketitle
+
+    \begin{abstract}
+        We have long known that pairing enhances knowledge sharing, ramping, and training.
+        These benefits outweighed the previously-assumed hit to overall velocity due to having two people do the work of
+        one.
+        Recently, we have learned that this impact is not as great as once thought, and that pairing can even improve
+        velocity in the short term.
+        We complete more features more quickly by pairing because the code is reviewed in real time, rather than
+        asynchronously.
+    \end{abstract}
+
+    \section{Introduction}\label{sec:introduction}
+
+    Learning a new language or domain on your own versus working with a seasoned developer;
+    a developer that can share lessons learned or clarify a slightly complex domain nomenclature.
+    The hypothesis being that a better understanding should naturally result in higher productivity or developing
+    software faster.
+
+    However, the question quickly becomes: What happens when the team understands both product domain and technology?
+    Should the team still pair?
+
+    The simple answer might be yes, because both domain and technology are constantly changing.
+    There is always more to learn, and now we have proof that pairing ships product faster.
+
+    \section{Workflows}\label{sec:workflows}
+
+    We begin with a series of fundamental definitions.
+
+    \begin{definition}
+        A \textit{user story} is an independently-deployable unit of work that delivers user value.
+    \end{definition}
+
+    \begin{definition}
+        A \textit{well-functioning team} splits their work into the smallest user stories as possible in order to stay
+        flexible and deliver incremental value.
+        The code for each user story should be able to be completed within four to eight hours.
+    \end{definition}
+
+    \begin{definition}
+        The \textit{point estimate} of a user story represents the well-functioning team's judgment of the story's
+        complexity.
+    \end{definition}
+
+    While point estimates are not tied directly to time, the number of points that a well-functioning team can complete
+    in a week is relatively constant.
+    For the sake of simplicity we'll refer to $n$-hour stories.
+
+    \begin{definition}
+        A user story is \textit{finished} once the code is merged into the mainline branch.
+    \end{definition}
+
+    \begin{definition}
+        The \textit{pairing workflow} consists of developers working in pairs, conducting live code review, and
+        committing to the mainline branch once the code is complete.
+    \end{definition}
+
+    \begin{lemma}\label{lemma:pair}
+        Two developers working in the pairing workflow will finish an $n$-hour story in $n$ hours.
+    \end{lemma}
+    \begin{proof}
+        Each $n$-hour story takes $n$ hours to code.
+        Since code review is completed live while pairing, the code is merged into the mainline branch in $n$ hours.
+    \end{proof}
+
+    \begin{definition}
+        In the \textit{pull request workflow} each developer works individually and submits the code for each user story
+        asynchronous review by others through pull requests.
+        Another developer reviews thoroughly reviews the pull request and suggests changes.
+        The author reviews these changes, updates the pull request, and merges the code into the mainline branch.
+    \end{definition}
+
+    \begin{lemma}\label{lemma:solo}
+        A developer working in the pull request workflow will complete an $n$-hour story in $2n$ hours.
+    \end{lemma}
+    \begin{proof}
+        In order to complete a thorough code review, the reviewer spend at least $\frac{n}{4}$ hours reviewing the pull
+        request, and the author must the same amount of time reviewing the changes and applying updates.
+        To allow for the asynchronous nature of the pull request workflow, we must allow for at least $\frac{n}{2}$
+        hours in waiting and communication time.
+    \end{proof}
+
+    \section{Parallelization}\label{sec:parallelization}
+
+    \begin{definition}
+        A \textit{backlog} is an ordered collection of user stories.
+    \end{definition}
+
+    \begin{definition}
+        A user story $\alpha_1$ \textit{depends on} a user story $\alpha_2$ if developers must wait to start work on
+        $\alpha_1$ until $\alpha_2$ is finished.
+    \end{definition}
+
+    \begin{definition}
+        A backlog is \textit{parallelizable} into $n$ workstreams (at a given point in time) if there are $n$ stories
+        able to be started, reviewed, or revised.
+    \end{definition}
+
+    The power of pairing is the ability for a team to work quickly on a backlog, even when parallelization is limited.
+
+    \begin{definition}
+        A team's \textit{velocity} is the speed at which it delivers user value.
+        We measure velocity as the rate at which the teams finishes stories, where each story is weighted by its
+        estimate.
+        If, in a given day, a team completes stories $\{\alpha_1, \alpha_2,\dots,\alpha_k\}$ with estimates
+        $\{n_1, n_2,\dots,n_k\}$ then the team's daily velocity is $\sum_1^k n_k$.
+    \end{definition}
+
+    \begin{lemma}\label{lemma:parallel}
+        A team of $2n$ developers with a backlog with more than $2n$ workstreams has an average daily velocity of $4n$,
+        regardless of working model (assuming an 8-hour day).
+    \end{lemma}
+    \begin{proof}
+        By Lemma~\ref{lemma:pair} each pair will complete $8n$ worth of stories in an 8-hour day and by
+        Lemma~\ref{lemma:solo} each developer will complete $4n$ worth of stories in an 8-hour day, giving each team an
+        average daily velocity of $4n$.
+    \end{proof}
+
+    \begin{theorem}
+        A well-functioning team of developers working as pairs is as fast or faster than a team of developers using pull
+        requests.
+    \end{theorem}
+    \begin{proof}
+        Suppose a team of $2n$ developers has a backlog that is parallelizable into $m > 0$ workstreams.
+        We will examine three different cases for the size $m$, and show that the team's velocity working in pairs is at
+        least as fast as the team's velocity using pull requests.
+
+        Suppose that $m\geq 2n$.
+        Then by Lemma~\ref{lemma:parallel} the team achieves an equal velocity regardless of working model.
+
+        Next, suppose that $n\leq m < 2n$.
+        In a team working in a pairing model, each of the $n$ pairs are able to work unrestricted, so the team has a
+        daily velocity of $4n$.
+        In a team working with pull requests, only $m$ developers are busy at any point in time, so the team has a daily
+        velocity of $2m$.
+        Using the original assumption that $m < 2n$ we see that $2m < 4n$, so the team working in the pairing model is
+        faster.
+
+        Finally, suppose that $0 < m < n$
+        In a team working in a pairing model, $m$ pairs are able to work unrestricted, thus the team has a daily
+        velocity of $4m$.
+        In a team working with pull requests, only $m$ developers are busy at any point in time, so the team has a daily
+        velocity of $2m$.
+        As before, the team working in a pairing model is faster.
+    \end{proof}
+\end{document}
