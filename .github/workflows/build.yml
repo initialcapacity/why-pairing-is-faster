@@ -1,0 +1,23 @@
+---
+name: Build
+
+on: [ push ]
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Generate PDF
+        uses: hspaans/latexmk-action@v1
+        with:
+          format: pdf
+          filename: pairing.tex
+
+      - name: Save artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: article
+          path: build/pairing.pdf
