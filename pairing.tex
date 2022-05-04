@@ -30,6 +30,7 @@
         asynchronously.
     \end{abstract}
 
+
     \section{Introduction}\label{sec:introduction}
 
     Learning any new product domain or language takes time.
@@ -52,6 +53,7 @@
 
     We have recently discovered that the impact of continuing to pair is most influenced by how easy the work is to
     parallelize.
+
 
     \section{Workflows}\label{sec:workflows}
 
@@ -145,23 +147,27 @@
         hours in waiting and communication time.
     \end{proof}
 
+
     \section{Parallelization}\label{sec:parallelization}
+
+    We next examine the shape of a team's work, or how developers complete a series of user stories over time.
 
     \begin{definition}
         A \textit{backlog} is an ordered collection of user stories.
     \end{definition}
+
+    A backlog is an ordered collection of stories.
+    In any non-trivial project there are dependencies between stories that prevent one story from being started until
+    another story has been completed.
 
     \begin{definition}
         A user story $\alpha_1$ \textit{depends on} a user story $\alpha_2$ if developers must wait to start work on
         $\alpha_1$ until $\alpha_2$ is finished.
     \end{definition}
 
-    \begin{definition}
-        A backlog is \textit{parallelizable} into $n$ workstreams (at a given point in time) if there are $n$ stories
-        able to be started, reviewed, or revised.
-    \end{definition}
-
-    The power of pairing is the ability for a team to work quickly on a backlog, even when parallelization is limited.
+    The pace at which a team moves through a backlog is directly tied to the amount of business value that the team
+    delivers.
+    Teams strive to deliver value at the fastest pace that is sustainable over an extended period of time.
 
     \begin{definition}
         A team's \textit{velocity} is the speed at which it delivers user value.
@@ -170,6 +176,18 @@
         If, in a given day, a team completes stories $\{\alpha_1, \alpha_2,\dots,\alpha_k\}$ with estimates
         $\{n_1, n_2,\dots,n_k\}$ then the team's daily velocity is $\sum_1^k n_k$.
     \end{definition}
+
+    In a team of multiple developers, velocity is maximized if all developers are able to stay busy with story work.
+    This is easier said than done.
+    Teams must minimize the cases where the complex web of dependencies between stories in a backlog block some
+    developers from story work.
+
+    \begin{definition}
+        A backlog is \textit{parallelizable} into $n$ workstreams (at a given point in time) if there are $n$ stories
+        able to be started, reviewed, or revised.
+    \end{definition}
+
+    In the fortunate case that stories are highly parallelizable, teams move quickly regardless of their working model.
 
     \begin{lemma}
         \label{lemma:parallel}
@@ -181,6 +199,8 @@
         Lemma~\ref{lemma:solo} each developer will complete $4n$ worth of stories in an 8-hour day, giving each team an
         average daily velocity of $4n$.
     \end{proof}
+
+    The power of pairing is the ability for a team to work quickly on a backlog, even when parallelization is limited.
 
     \begin{theorem}
         A well-functioning team of developers working as pairs is as fast or faster than a team of developers using pull
@@ -209,6 +229,7 @@
         velocity of $2m$.
         As before, the team working in a pairing model is faster.
     \end{proof}
+
 
     \section{Summary}\label{sec:summary}
 
