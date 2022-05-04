@@ -3,6 +3,7 @@
 \usepackage{amsthm}
 \usepackage{csquotes}
 \usepackage{hyperref}
+\usepackage[indent=16pt]{parskip}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -23,11 +24,11 @@
         collective code ownership, and increases overall developer productivity~\cite{fowler:pairing}.
         These benefits outweigh the previously assumed decrease in velocity and high cost due to having two people do
         the work of one.
-        Recently, we have learned that pairing does not negatively impact velocity, and can even improve velocity
-        significantly, even in the short term.
-        We complete more features faster by pairing because the code reviews happen in parallel, rather than asynchronously.
+        Recently, we have been able to show that pairing does not negatively impact velocity.
+        On the contrary, pairing can improve velocity significantly, even in the short term.
+        We complete more features faster by pairing because the code reviews happen in real time rather than
+        asynchronously.
     \end{abstract}
-
 
     \section{Introduction}\label{sec:introduction}
 
@@ -37,8 +38,8 @@
     Pair programming, or having the two developers work side-by-side on a common problem or set of features, is one form
     of this collaboration.
 
-    However, once both developers have a solid understanding of product domain and technology stack, the question
-    quickly becomes: What happens when individuals understand both product domain and technology?
+    However, once developers have a solid understanding of product domain and technology stack, the question quickly
+    becomes: What happens when individuals understand both product domain and technology?
     Should they still pair?
 
     The simple answer might be yes, because both domain and technology are constantly changing and there is always more
@@ -49,22 +50,31 @@
         ``[Pairing] increases the chances that anyone on the team feels comfortable changing the code almost anywhere."
     \end{displayquote}
 
-    We have recently discovered that the decision and strong argument to continue pairing is most impacted by the shape
-    of the work - serial versus parallel work.
+    We have recently discovered that the impact of continuing to pair is most influenced by how easy the work is to
+    parallelize.
 
     \section{Workflows}\label{sec:workflows}
 
-    We begin with a series of fundamental definitions.
+    We begin with a series of fundamental definitions to help us define the pairing and pull request workflows.
+
+    \subsection{User Stories}\label{subsec:user-stories}
 
     \begin{definition}
-        A \textit{user story} is an independently-deployable unit of work that delivers user value.
+        A \textit{user story} is an independently-deployable unit of work that delivers business value.
     \end{definition}
+
+    User stories are the smallest unit of work tracked by software teams.
+    By keeping user stories small, teams ensure that business owners have full visibility and control over the order
+    in which stories are delivered.
+    This ensures that teams are always working on the most important features.
 
     \begin{definition}
         A \textit{well-functioning team} splits their work into the smallest user stories as possible in order to stay
         flexible and deliver incremental value.
         The code for each user story should be able to be completed within four to eight hours.
     \end{definition}
+
+    In order to track the size of user stories, well-functioning teams estimate story size.
 
     \begin{definition}
         The \textit{point estimate} of a user story represents the well-functioning team's judgment of the story's
@@ -73,16 +83,31 @@
 
     While point estimates are not tied directly to time, the number of points that a well-functioning team can complete
     in a week is relatively constant.
-    For the sake of simplicity we'll refer to $n$-hour stories.
+    For the sake of simplicity we'll refer to $n$-hour stories (which take developers $n$ hours to code), assuming that
+    the time/complexity correlation has been calculated.
+
+    It is important to call out that a user story is not finished until other developers can build off its results and
+    it is deployed to a production-like environment.
+    This occurs when the code is merged into the mainline branch.
 
     \begin{definition}
         A user story is \textit{finished} once the code is merged into the mainline branch.
     \end{definition}
 
+    \subsection{Pair Programming}\label{subsec:pairing}
+
+    Pair programming is style of work where two developer work together on a user story while controlling the same machine.
+    Code review happens in real time during pair programming;
+    as one developer authors the code the other constantly evaluates design decisions and watches for errors.
+    This short feedback loop allows for high quality code and rapid knowledge transfer.
+
     \begin{definition}
         The \textit{pairing workflow} consists of developers working in pairs, conducting live code review, and
-        typically committing to the mainline branch once the code is complete.
+        committing to the mainline branch once the code is complete.
     \end{definition}
+
+    As code review happens in real time, the code written for a story is ready to merge into the mainline as soon as it
+    is complete.
 
     \begin{lemma}
         \label{lemma:pair}
@@ -93,12 +118,21 @@
         Since code review is completed live while pairing, the code is merged into the mainline branch in $n$ hours.
     \end{proof}
 
+    \subsection{Pull Requests}\label{subsec:pull-requests}
+
+    In a pull request workflow, developers work individually, completing the code for a given user story before a formal
+    code review.
+    Once the code is complete, it must be approved by another developer on the team before it can be merged into the
+    mainline branch.
+
     \begin{definition}
         In the \textit{pull request workflow} each developer works individually and submits the code for each user story
         asynchronous review by others through pull requests.
         Another developer reviews thoroughly reviews the pull request and suggests changes.
         The author reviews these changes, updates the pull request, and merges the code into the mainline branch.
     \end{definition}
+
+    Other developers on the team are often busy with other tasks, so there is often a delay before the code is reviewed.
 
     \begin{lemma}
         \label{lemma:solo}
@@ -110,7 +144,6 @@
         To allow for the asynchronous nature of the pull request workflow, we must allow for at least $\frac{n}{2}$
         hours in waiting and communication time.
     \end{proof}
-
 
     \section{Parallelization}\label{sec:parallelization}
 
