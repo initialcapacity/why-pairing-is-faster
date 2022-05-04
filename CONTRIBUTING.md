@@ -1,4 +1,4 @@
-## Install dependencies
+# Install dependencies
 
 1.  Install BasicTeX.
     ```shell
@@ -10,7 +10,7 @@
     sudo tlmgr install latexmk csquotes
     ```
 
-## Build
+# Build
 
 Use the `latexmk` command to build a PDF in the `build` folder.
 
