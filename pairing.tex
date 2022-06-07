@@ -54,8 +54,23 @@
         ``{[Pairing]} increases the chances that anyone on the team feels comfortable changing the code almost anywhere."
     \end{displayquote}
 
-    We have recently discovered that the impact of continuing to pair is most influenced by how easy the work is to
-    parallelize.
+    Many organizations attempt to layer on processes to ensure code quality and security, however in practice this
+    creates an increase in feedback cycles that have the opposite effect.
+    In fact, research has found that lightweight change approval processes are the best way to ensure stability in a
+    software product.
+
+    \begin{displayquote}[\cite{forsgren2018}][\textit{Nicole Forsgren, Jez Humble, and Gene Kim}]
+    ``external approvals were negatively correlated with lead time, deployment frequency, and restore time, and had no
+    correlation with change fail rate.
+    In short, approval by an external body (such as a manager or CAB) simply doesn't work to increase the stability of
+    production systems, measured by the time to restore service and change fail rate.
+    However, it certainly slows things down.
+    It is, in fact, worse than having no change approval process at all."
+    \end{displayquote}
+
+    In effect, pair programming promotes this concept of lightweight change approval process with fast feedback cycles.
+    This alone would be an argument to continue to pair, however we have recently discovered that the impact is most
+    effected by how easy the work is to parallelize.
 
 
     \section{Discussion}\label{sec:discussion}
