@@ -9,11 +9,11 @@ of the paper.
 
 We have long discussed how pair programming, among several benefits, accelerates knowledge sharing, ensures
 collective code ownership, and increases overall developer productivity.
-These benefits outweigh the previously assumed decrease in velocity and high cost due to having two people do
+These benefits outweigh the previously assumed decrease in velocity and high cost of to having two people do
 the work of one.
-Recently, we have learned that pairing does not negatively impact velocity, and can even improve velocity
-significantly, even in the short term.
-We complete more features faster by pairing because the code reviews happen in parallel, rather than asynchronously.
+We have shown that pairing does not negatively impact velocity, and in fact improves velocity significantly even in the
+short term.
+We complete more features faster by pairing because the code reviews happen in real time, rather than asynchronously.
 
 ## Summary 
 
