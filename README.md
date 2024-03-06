@@ -17,7 +17,7 @@ We complete more features faster by pairing because the code reviews happen in r
 
 ## Summary 
 
-When paring, dependencies between stories in a backlog have less of an impact on team velocity.
+When pairing, dependencies between stories in a backlog have less of an impact on team velocity.
 The impact of dependencies is much higher in a pull request workflow, meaning stories must be highly parallelizable
 to achieve the same productivity.
 
